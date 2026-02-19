@@ -4,6 +4,7 @@ export default function App() {
 
   const [repos, setRepos] = useState([]);
   const [dark, setDark] = useState(true);
+  const [selectedRepo, setSelectedRepo] = useState(null);
 
   useEffect(() => {
     fetch("https://api.github.com/users/gabeemachado29/repos")
@@ -17,7 +18,7 @@ export default function App() {
       : "min-h-screen bg-gradient-to-br from-gray-100 to-gray-300 text-gray-900"
     }>
 
-      {/* TOGGLE */}
+      {/* TOGGLE THEME */}
       <div className="absolute top-6 right-6">
         <button
           onClick={() => setDark(!dark)}
@@ -32,7 +33,7 @@ export default function App() {
 
         <img
           src="https://avatars.githubusercontent.com/gabeemachado29"
-          className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-cyan-400"
+          className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-cyan-400 shadow-lg"
         />
 
         <h1 className="text-5xl font-bold mb-2">
@@ -44,7 +45,8 @@ export default function App() {
         </p>
 
         <p className="opacity-70 text-sm mt-2">
-          📅 29/01/2004 • 📞 (41) 99101-1256
+          Especialista em suporte corporativo, infraestrutura e desenvolvimento de
+          aplicações web e mobile.
         </p>
 
         <a
@@ -56,7 +58,7 @@ export default function App() {
 
       </section>
 
-      {/* SOBRE */}
+      {/* SOBRE EXPANDIDO */}
       <section className="max-w-5xl mx-auto px-6 mb-20">
 
         <div className="bg-slate-800 p-6 rounded-2xl border border-slate-700">
@@ -66,101 +68,86 @@ export default function App() {
           </h2>
 
           <p className="opacity-80 mb-3">
-            Profissional de Tecnologia da Informação com experiência em suporte
-            técnico, infraestrutura e desenvolvimento de sistemas.
+            Atuo na área de Tecnologia da Informação desde cedo, iniciando minha
+            carreira como Auxiliar de Informática no Colégio Adventista de
+            Paranaguá, onde adquiri experiência em manutenção, suporte e mídia.
+          </p>
+
+          <p className="opacity-80 mb-3">
+            Atualmente trabalho como Técnico de Informática pela Faiston,
+            prestando serviços para a Klabin em suas duas unidades, atuando com
+            suporte corporativo, redes e infraestrutura.
           </p>
 
           <p className="opacity-80">
-            Atuo também com projetos próprios, com foco em soluções reais,
-            integração de sistemas e aplicações mobile.
+            Também desenvolvo projetos próprios, com foco em sistemas reais,
+            integração de APIs, cloud e aplicativos mobile.
           </p>
 
         </div>
 
       </section>
 
-      {/* TIMELINE */}
-      <section className="max-w-4xl mx-auto px-6 mb-20">
-
-        <h2 className="text-2xl font-semibold mb-8">
-          🧭 Experiência Profissional
-        </h2>
-
-        <div className="space-y-6 border-l-2 border-cyan-400 pl-6">
-
-          <div>
-            <h3 className="font-bold text-cyan-400">
-              Colégio Adventista de Paranaguá
-            </h3>
-            <p className="opacity-80 text-sm">
-              Auxiliar de TI • 2022 — 2024
-            </p>
-            <p className="opacity-70 text-sm">
-              Manutenção de computadores, suporte a usuários,
-              edição de vídeos e gestão de mídias sociais.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-bold text-cyan-400">
-              Faiston / Klabin
-            </h3>
-            <p className="opacity-80 text-sm">
-              Técnico de Informática • Atual
-            </p>
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* PROJETO */}
-      <section className="max-w-5xl mx-auto px-6 mb-20">
-
-        <div className="bg-slate-800 p-6 rounded-2xl border border-slate-700">
-
-          <h2 className="text-2xl font-semibold mb-4">
-            🚀 Projeto em Destaque
-          </h2>
-
-          <h3 className="text-cyan-400 font-bold">
-            App Med
-          </h3>
-
-          <p className="opacity-80 text-sm">
-            Plataforma de prontuário digital pessoal com histórico de consultas,
-            armazenamento de exames e comunicação direta entre paciente e médico.
-          </p>
-
-        </div>
-
-      </section>
-
-      {/* SKILLS */}
+      {/* SKILLS COM ÍCONES */}
       <section className="max-w-5xl mx-auto px-6 mb-20">
 
         <h2 className="text-2xl font-semibold mb-6">
-          🧠 Competências
+          🧠 Tecnologias
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-4 opacity-80">
+        <div className="grid md:grid-cols-4 gap-4">
 
-          <span>Microsoft Office</span>
-          <span>C / Java / PHP</span>
-          <span>Flutter / Dart</span>
-          <span>HTML / CSS</span>
-          <span>Firebase</span>
-          <span>JavaScript / Python</span>
+          {[
+            ["💙","Flutter"],
+            ["🎯","Dart"],
+            ["🐘","PHP"],
+            ["⚡","JavaScript"],
+            ["🐍","Python"],
+            ["☕","Java"],
+            ["💾","MySQL"],
+            ["🔥","Firebase"]
+          ].map(skill => (
+
+            <div
+              key={skill[1]}
+              className="bg-slate-800 p-4 rounded-xl border border-slate-700 text-center hover:scale-105 transition"
+            >
+              <div className="text-2xl">{skill[0]}</div>
+              <div className="opacity-80">{skill[1]}</div>
+            </div>
+
+          ))}
 
         </div>
 
       </section>
 
-      {/* GITHUB */}
+      {/* CERTIFICADOS */}
       <section className="max-w-5xl mx-auto px-6 mb-20">
 
         <h2 className="text-2xl font-semibold mb-6">
-          📂 Projetos
+          🏆 Certificados
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-6">
+
+          <div className="bg-slate-800 p-5 rounded-xl border border-slate-700">
+            📜 Análise e Desenvolvimento de Sistemas — IFPR
+          </div>
+
+          <div className="bg-slate-800 p-5 rounded-xl border border-slate-700">
+            📜 Cursos complementares em Desenvolvimento e TI
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* PROJETOS */}
+      <section className="max-w-5xl mx-auto px-6 mb-20">
+
+        <h2 className="text-2xl font-semibold mb-6">
+          🚀 Projetos
         </h2>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -169,19 +156,16 @@ export default function App() {
 
             <div
               key={repo.id}
-              className="p-5 rounded-xl bg-white/5 border border-white/10"
+              onClick={() => setSelectedRepo(repo)}
+              className="p-5 rounded-xl bg-white/5 border border-white/10 cursor-pointer hover:scale-105 transition"
             >
               <h3 className="text-cyan-400 font-bold">
                 {repo.name}
               </h3>
 
-              <a
-                href={repo.html_url}
-                target="_blank"
-                className="text-sm hover:underline"
-              >
-                Ver repositório →
-              </a>
+              <p className="text-sm opacity-80">
+                Clique para detalhes
+              </p>
 
             </div>
 
@@ -190,6 +174,53 @@ export default function App() {
         </div>
 
       </section>
+
+      {/* MODAL PROJETO */}
+      {selectedRepo && (
+
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-6">
+
+          <div className="bg-slate-900 p-6 rounded-xl max-w-lg w-full">
+
+            <h3 className="text-xl font-bold text-cyan-400 mb-3">
+              {selectedRepo.name}
+            </h3>
+
+            <p className="opacity-80 mb-4">
+              {selectedRepo.description || "Sem descrição adicionada."}
+            </p>
+
+            <a
+              href={selectedRepo.html_url}
+              target="_blank"
+              className="text-cyan-400 hover:underline"
+            >
+              Abrir repositório →
+            </a>
+
+            <div className="mt-6">
+              <button
+                onClick={() => setSelectedRepo(null)}
+                className="px-4 py-2 bg-red-500 rounded"
+              >
+                Fechar
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
+
+      {/* WHATSAPP FIXO */}
+      <a
+        href="https://wa.me/5541991011256"
+        target="_blank"
+        className="fixed bottom-6 right-6 bg-green-500 w-14 h-14 flex items-center justify-center rounded-full text-2xl shadow-lg hover:scale-110 transition"
+      >
+        💬
+      </a>
 
       {/* CONTATO */}
       <section className="text-center pb-20">
@@ -200,8 +231,8 @@ export default function App() {
 
         <p>📧 gamafran@outlook.com</p>
 
-        <p>
-          💼 LinkedIn • 🐙 GitHub
+        <p className="opacity-80">
+          LinkedIn • GitHub • WhatsApp
         </p>
 
       </section>
