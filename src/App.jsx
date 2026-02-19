@@ -1,158 +1,97 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Mail, Linkedin, Github } from "lucide-react";
-import { motion } from "framer-motion";
 
-export default function Portfolio() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-6">
-      {/* HEADER */}
-      <motion.div
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="max-w-5xl mx-auto text-center mb-12"
-      >
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+    <div style={{
+      minHeight: "100vh",
+      background: "linear-gradient(135deg,#0f172a,#1e293b,#020617)",
+      color: "white",
+      fontFamily: "Arial",
+      padding: "40px"
+    }}>
+      
+      <div style={{maxWidth: "900px", margin: "0 auto"}}>
+
+        <h1 style={{fontSize: "42px", marginBottom: "10px"}}>
           Gabriel Machado França
         </h1>
-        <p className="text-xl text-slate-300">
+
+        <p style={{color: "#94a3b8", marginBottom: "40px"}}>
           Técnico de Informática • Analista de Sistemas • Desenvolvedor Full Stack
         </p>
-      </motion.div>
 
-      {/* SOBRE */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
-        className="max-w-5xl mx-auto mb-12"
-      >
-        <Card className="bg-slate-800 border-slate-700">
-          <CardContent className="p-6 space-y-4">
-            <h2 className="text-2xl font-semibold">👨‍💻 Sobre mim</h2>
-            <p className="text-slate-300 leading-relaxed">
-              Tenho 22 anos e atuo na área de Tecnologia da Informação desde cedo,
-              iniciando minha trajetória como Auxiliar de Informática e evoluindo
-              para suporte corporativo e desenvolvimento de sistemas.
-            </p>
-            <p className="text-slate-300 leading-relaxed">
-              Sou formado em Análise e Desenvolvimento de Sistemas e atualmente
-              trabalho com suporte e infraestrutura de TI, além de desenvolver
-              projetos próprios focados em soluções reais.
-            </p>
-          </CardContent>
-        </Card>
-      </motion.div>
+        {/* SOBRE */}
+        <section style={{marginBottom: "40px"}}>
+          <h2>👨‍💻 Sobre mim</h2>
+          <p>
+            Tenho 22 anos e atuo na área de Tecnologia da Informação desde cedo,
+            iniciando como Auxiliar de Informática e evoluindo para suporte
+            corporativo e desenvolvimento de sistemas.
+          </p>
+          <p>
+            Sou formado em Análise e Desenvolvimento de Sistemas e desenvolvo
+            projetos próprios focados em soluções reais.
+          </p>
+        </section>
 
-      {/* PROJETO DESTAQUE */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="max-w-5xl mx-auto mb-12"
-      >
-        <Card className="bg-slate-800 border-slate-700">
-          <CardContent className="p-6 space-y-4">
-            <h2 className="text-2xl font-semibold">🚀 Projeto em Destaque</h2>
+        {/* PROJETO */}
+        <section style={{marginBottom: "40px"}}>
+          <h2>🚀 Projeto em Destaque</h2>
 
-            <div className="space-y-2">
-              <h3 className="text-xl font-bold text-cyan-400">App Med</h3>
-              <p className="text-slate-300">
-                Sistema de comunicação e gerenciamento entre médicos e pacientes,
-                em produção desde 2025 e em fase final de testes.
-              </p>
+          <h3 style={{color: "#22d3ee"}}>App Med</h3>
 
-              <div className="flex flex-wrap gap-2 mt-3">
-                {["Flutter", "Firebase", "Google Cloud", "APIs REST"].map(
-                  (tech) => (
-                    <span
-                      key={tech}
-                      className="bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full text-sm"
-                    >
-                      {tech}
-                    </span>
-                  )
-                )}
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </motion.div>
+          <p>
+            Sistema de comunicação e gerenciamento entre médicos e pacientes,
+            em produção desde 2025 e em fase final de testes.
+          </p>
+        </section>
 
-      {/* SKILLS */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
-        className="max-w-5xl mx-auto mb-12"
-      >
-        <Card className="bg-slate-800 border-slate-700">
-          <CardContent className="p-6">
-            <h2 className="text-2xl font-semibold mb-4">🧠 Tecnologias</h2>
+        {/* SKILLS */}
+        <section style={{marginBottom: "40px"}}>
+          <h2>🧠 Tecnologias</h2>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-slate-300">
-              <span>Flutter</span>
-              <span>Dart</span>
-              <span>PHP</span>
-              <span>Laravel</span>
-              <span>JavaScript</span>
-              <span>Python</span>
-              <span>Java</span>
-              <span>C / C++</span>
-              <span>MySQL</span>
-              <span>SQLite</span>
-              <span>Firebase</span>
-              <span>Google Cloud</span>
-            </div>
-          </CardContent>
-        </Card>
-      </motion.div>
+          <ul>
+            <li>Flutter / Dart</li>
+            <li>PHP / Laravel</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>Java</li>
+            <li>C / C++</li>
+            <li>MySQL / SQLite</li>
+            <li>Firebase / Google Cloud</li>
+          </ul>
+        </section>
 
-      {/* CONTATO */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-        className="max-w-5xl mx-auto"
-      >
-        <Card className="bg-slate-800 border-slate-700">
-          <CardContent className="p-6 text-center space-y-4">
-            <h2 className="text-2xl font-semibold">📫 Contato</h2>
+        {/* CONTATO */}
+        <section>
+          <h2>📫 Contato</h2>
 
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button className="gap-2">
-                <Mail size={18} />
-                gamafran@outlook.com
-              </Button>
+          <p>Email: gamafran@outlook.com</p>
 
-              <Button
-                variant="secondary"
-                className="gap-2"
-                onClick={() =>
-                  window.open(
-                    "https://www.linkedin.com/in/gabriel-machadof29",
-                    "_blank"
-                  )
-                }
-              >
-                <Linkedin size={18} /> LinkedIn
-              </Button>
+          <p>
+            LinkedIn:{" "}
+            <a
+              href="https://www.linkedin.com/in/gabriel-machadof29"
+              target="_blank"
+              style={{color:"#22d3ee"}}
+            >
+              Acessar
+            </a>
+          </p>
 
-              <Button
-                variant="outline"
-                className="gap-2"
-                onClick={() =>
-                  window.open("https://github.com/gabeemachado29", "_blank")
-                }
-              >
-                <Github size={18} /> GitHub
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </motion.div>
+          <p>
+            GitHub:{" "}
+            <a
+              href="https://github.com/gabeemachado29"
+              target="_blank"
+              style={{color:"#22d3ee"}}
+            >
+              Acessar
+            </a>
+          </p>
+        </section>
+
+      </div>
     </div>
   );
 }
